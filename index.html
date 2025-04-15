@@ -22,18 +22,13 @@
     }
 
     .content {
-      background: white;
+      background: transparent;
       padding: 2rem 3rem;
       border-radius: 1rem;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      box-shadow: none;
       text-align: center;
       max-width: 500px;
       width: 90%;
-    }
-
-    #cell-2 .content {
-      background: transparent;
-      box-shadow: none;
     }
 
     .profile-img {
@@ -46,6 +41,13 @@
 
     .profile-img-large {
       width: 230px;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .profile-img-full {
+      width: 100%;
       height: auto;
       border-radius: 1rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -66,7 +68,7 @@
 
     ul {
       text-align: left;
-      line-height: 1.6;
+      line-height: 2.8;
       padding-left: 1.2rem;
     }
 
@@ -88,10 +90,9 @@
 
   <div class="cell" id="cell-2">
     <div class="content">
-      <img src="필기.jpg" alt="엄한준T 사진" class="profile-img" />
+      <img src="필기.jpg" alt="엄한준T 사진" class="profile-img-full" />
       <h1>엄한준T</h1>
       <p>안녕하세요, 수학강사 엄한준 입니다.</p>
-      <a href="mailto:likesue@naver.com">likesue@naver.com</a>
     </div>
   </div>
 
@@ -99,10 +100,12 @@
     <img src="A_2D_digital_illustration_in_anime_style_features_.png" alt="웃는 엄한준T 캐릭터" class="profile-img-large" />
   </div>
 
+  
+  
   <div class="cell" id="cell-4">
     <div class="content">
       <h2>이력</h2>
-      <ul>
+      <ul style="text-align: center; line-height: 2.4; font-size: 1.2rem;">
         <li>한양대학교 졸업</li>
         <li>전) 부평 하이스트 고등수학 전임강사</li>
         <li>전) 이천 국풍2000 고등수학 전임강사</li>
@@ -113,10 +116,81 @@
     </div>
   </div>
 
-  <div class="cell" id="cell-5"></div>
-  <div class="cell" id="cell-6"></div>
-  <div class="cell" id="cell-7"></div>
-  <div class="cell" id="cell-8"></div>
-  <div class="cell" id="cell-9"></div>
+
+  <div class="cell" id="cell-5">
+    <div class="content">
+      <p style="color: #b39ddb; font-size: 1.6rem; font-weight: bold; text-align: center; white-space: pre-line;">
+        저에게는 여러 학생들 중에 한 명 일지 몰라도, 
+각 가정에서는 하나뿐인 귀학 자식이라는 점 
+절대로 잊지 않겠습니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="cell" id="cell-6">
+    <div class="content">
+      <h2>강의 미리보기</h2>
+      <iframe width="100%" height="315"
+        src="https://www.youtube.com/embed/ZFUVWWcmwEk"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  
+  
+
+  <div class="cell" id="cell-9">
+    <div class="content">
+      <h2>Contact Me</h2>
+      <ul>
+        <li><strong>Cell Phone</strong>: 010-5652-6401</li>
+        <li><strong>E-mail</strong>: likesue@naver.com</li>
+        <li><strong>YouTube</strong>: <a href="https://www.youtube.com/@dontcrystudents" target="_blank">https://www.youtube.com/@dontcrystudents</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 벚꽃 애니메이션 -->
+  <style>
+    .petal {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+  <script>
+    function createPetal() {
+      const petal = document.createElement("div");
+      petal.classList.add("petal");
+      petal.textContent = "🌸";
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (3 + Math.random() * 5) + "s";
+      petal.style.fontSize = (16 + Math.random() * 10) + "px";
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 8000);
+    }
+    setInterval(createPetal, 500);
+  </script>
 </body>
+
 </html>
